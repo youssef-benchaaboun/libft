@@ -1,18 +1,16 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include<limits.h>
+#include"libft.h"
 static unsigned int ft_len(int n)
 {
 	unsigned int i;
 	long nb;
-	i=0;
+	i=1;
 	nb=(long)n;
 	if(nb<0)
 	{
 		nb=-1*nb;
 		i++;
 	}
-	while(nb>0)
+	while(nb>9)
 	{
 		nb=nb/10;
 		i++;
@@ -40,10 +38,3 @@ char *ft_itoa(int n)
 	re[ft_len(n)]='\0';
 	return re;
 }
-int main(void)
-{
-	char *s;
-	s=ft_itoa(INT_MAX);
-	printf("number is %s\n",s);
-}
-

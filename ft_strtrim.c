@@ -1,15 +1,4 @@
-#include<stdio.h>
-#include <string.h>
-#include<stdlib.h>
-static unsigned int ft_strlen(char const *s)
-{
-        unsigned int i;
-        i=0;
-        while(s[i])
-		i++;
-	return i;
-}
-          
+#include"libft.h"
 static int ft_search(char c,char  const *s)
 {
 	unsigned int i;
@@ -34,6 +23,8 @@ static unsigned int ft_len(char const *s1, char const *set)
 		i++;
 	while((len-1) && ft_search(s1[len-1],set))
 		len--;
+	if(len<i)
+		return 0;
 	return len - i;
 }
 static void ft_effect(char *s,char const *s1, char const *set)
@@ -54,7 +45,7 @@ static void ft_effect(char *s,char const *s1, char const *set)
 char *ft_strtrim(char const *s1, char const *set)
 {
 	char *re;
-	re=malloc(ft_len(s1, set));
+	re=malloc(ft_len(s1, set)+1);
 	if(!re)
 		return NULL;
 	ft_effect(re,s1,set);

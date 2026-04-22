@@ -1,5 +1,4 @@
-#include<stdio.h>
-#include <stddef.h>
+#include"libft.h"
 void *ft_memmove(void* dest, const void * src, size_t n)
 {
 	char *cdst;
@@ -26,9 +25,3 @@ void *ft_memmove(void* dest, const void * src, size_t n)
 	}
 	return dest;
 }
-/*int main(void)
-{
-	char src[11]="012345678";
-	ft_memmove(src+4,src,6);
-	printf("dest is %s \n",src+4);
-}*/

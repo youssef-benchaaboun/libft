@@ -1,14 +1,4 @@
 #include"libft.h"
-static size_t ft_strlen(const char *s)
-{
-	size_t i;
-
-	i=0;
-	while(s[i])
-		i++;
-	return i;
-}
-
 char *ft_strdup(const char *s)
 {
 	char *re;
@@ -23,5 +13,6 @@ char *ft_strdup(const char *s)
 		i++;
 	}
 	re[i]='\0';
+	return re;
 }
 

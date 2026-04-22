@@ -1,12 +1,4 @@
 #include"libft.h"
-static unsigned int  ft_strlen(const char *s)
-{
-        unsigned int i;
-        i=0;
-        while(s[i])
-                i++;
-        return i;
-}
 char *ft_strjoin(char const *s1, char const *s2)
 {
 	char *re;

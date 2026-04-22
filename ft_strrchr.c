@@ -1,9 +1,10 @@
+#include"libft.h"
 char *ft_strrchr(const char *s, int c)
 {
 	char t;
 	const char *last;
 
-	last= s
+	last= s;
 	t=(char)c;
 	while(*last)
 		last++;

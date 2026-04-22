@@ -1,7 +1,7 @@
 #include"libft.h"
-void ft_bzero(void s[.n], size_t n)
+void ft_bzero(void *s, size_t n)
 {
-	char *c;
+	char *c1;
 	size_t i;
 
 	i=0;

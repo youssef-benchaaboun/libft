@@ -1,6 +1,4 @@
-//#include"libft.h"
-#include<stdio.h>
-#include<stdlib.h>
+#include"libft.h"
 static unsigned int ft_count_words(char const *s, char c)
 {
 	unsigned int words;
