@@ -21,10 +21,7 @@ static int ft_free(char **re,unsigned int index)
 	unsigned int i;
 	i=0;
 	while(i<index)
-	{
-		free(re[i]);
-		i++;
-	}
+		free(re[i++]);
 	free(re);
 	return 0;
 }
@@ -88,21 +85,6 @@ char **ft_split(char const *s, char c)
 	ft_assigning(re,s,c);
 	return re;
 }
-/*int main(int l,char ** s)
-{
-	char **r;
-	r=ft_split(s[1],s[2][0]);
-	int i=0;
-	while(r[i])
-		printf("word %d is %s \n",i+1,r[i++]);
-
-}*/
-
-
-
-
-
-
 
 
 
