@@ -11,43 +11,28 @@ static int ft_search(char c,char  const *s)
 	}
 	return 0;
 }
-static unsigned int ft_len(char const *s1, char const *set)
+static unsigned int ft_start(char const *s1, char const *set)
 {
-	unsigned int i;
-	unsigned int len;
-	i=0;
-	len=ft_strlen(s1);
-	if(len==0)
-		return 0;
-	while(s1[i] && ft_search(s1[i],set))
-		i++;
-	while((len-1) && ft_search(s1[len-1],set))
-		len--;
-	if(len<i)
-		return 0;
-	return len - i;
+        unsigned int start;
+        start=0;
+        while((s1[start] && ft_search(s1[start],set)))
+                start++;
+        return start;
 }
-static void ft_effect(char *s,char const *s1, char const *set)
+static unsigned int ft_stop(char const *s1, char const *set)
 {
-        unsigned int i;
-        unsigned int len;
-        i=0;
-        len=0;
-        while(s1[i])
-        {
-                while(s1[i] && ft_search(s1[i],set))
-                        i++;
-                while(s1[i] && len<ft_len(s1,set))
-                        s[len++]=s1[i++];
-        }
-	s[len]='\0';
+	unsigned int stop;
+	stop=ft_strlen(s1);
+	if(stop==0)
+		return 0;
+	while((stop-1) && ft_search(s1[stop-1],set))
+		stop--;
+	return stop - ft_start(s1,set);
 }
+
 char *ft_strtrim(char const *s1, char const *set)
 {
-	char *re;
-	re=malloc(ft_len(s1, set)+1);
-	if(!re)
+	if(!s1 || !set)
 		return NULL;
-	ft_effect(re,s1,set);
-	return re;
+	return ft_substr(s1,ft_start(s1,set),ft_stop(s1,set));
 }

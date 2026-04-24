@@ -5,6 +5,8 @@ void ft_putnbr_fd(int n, int fd)
 	char c;
 
 	nb=n;
+	if(fd<0)
+		return;
 	if(n<0)
 	{
 		nb=-1*(long)n;

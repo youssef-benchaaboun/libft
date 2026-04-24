@@ -1,10 +1,8 @@
 #include"libft.h"
-static unsigned int ft_len(int n)
+static unsigned int ft_len(long nb)
 {
 	unsigned int i;
-	long nb;
 	i=1;
-	nb=(long)n;
 	if(nb<0)
 	{
 		nb=-1*nb;
@@ -22,6 +20,7 @@ char *ft_itoa(int n)
 	char *re;
 	unsigned int i;
 	long nb;
+
 	re=malloc(ft_len(n)+1);
 	nb=(long)n;
 	i=0;
