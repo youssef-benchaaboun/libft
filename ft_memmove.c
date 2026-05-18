@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yoben-ch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/18 18:47:53 by yoben-ch          #+#    #+#             */
+/*   Updated: 2026/05/18 18:47:53 by yoben-ch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
@@ -19,9 +31,11 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	else
 	{
-		while ((int)(--n) >= 0)
+		i = 1;
+		while (i <= n)
 		{
-			*(cdst + n) = *(csrc + n);
+			*(cdst + n - i) = *(csrc + n - i);
+			i++;
 		}
 	}
 	return (dest);

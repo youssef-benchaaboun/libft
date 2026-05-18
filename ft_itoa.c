@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yoben-ch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/18 18:47:52 by yoben-ch          #+#    #+#             */
+/*   Updated: 2026/05/18 18:47:52 by yoben-ch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static unsigned int	ft_len(long nb)
+static size_t	ft_len(long nb)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 1;
 	if (nb < 0)
@@ -20,9 +32,9 @@ static unsigned int	ft_len(long nb)
 
 char	*ft_itoa(int n)
 {
-	char			*re;
-	unsigned int	i;
-	long			nb;
+	char	*re;
+	size_t	i;
+	long	nb;
 
 	re = malloc(ft_len(n) + 1);
 	nb = (long)n;

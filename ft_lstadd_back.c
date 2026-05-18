@@ -1,15 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yoben-ch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/18 18:47:52 by yoben-ch          #+#    #+#             */
+/*   Updated: 2026/05/18 18:47:52 by yoben-ch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-/*static t_list *lstlast(t_list *lst)
-{
-		if(!lst)
-				return (NULL);
-		while(lst->next)
-				lst=lst->next;
-		return (lst);
-}*/
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
+	if (!lst)
+		return ;
 	if (!(*lst))
 	{
 		*lst = new;
