@@ -6,7 +6,7 @@
 /*   By: yoben-ch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 18:47:53 by yoben-ch          #+#    #+#             */
-/*   Updated: 2026/05/18 18:47:53 by yoben-ch         ###   ########.fr       */
+/*   Updated: 2026/05/19 14:42:39 by yoben-ch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ char	*ft_strrchr(const char *s, int c)
 		last++;
 	while (*last != t)
 	{
-		if (*last == *s)
+		if (last == s)
 			return (NULL);
 		last--;
 	}
 	return ((char *)last);
 }
-/*instead of condtion in searchinf inide 
- * we can do condtion while tgey are diffrent*/
