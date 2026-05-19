@@ -1,4 +1,4 @@
-This project has been created as part of the 42 curriculum by yoben-ch
+This project has been created as part of the 42 curriculum by yoben-ch.
 
 # Libft - My First Project at 42 School (Madrid)
 
