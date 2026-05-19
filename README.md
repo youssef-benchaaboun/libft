@@ -1,7 +1,9 @@
 This project has been created as part of the 42 curriculum by yoben-ch
 
-##libft - My First Project at 42 School (Madrid)
-This project is my first assignment at **School 42**, where I recreated several functions from the standard C library (`libc`) from scratch. The goal was to deepen my understanding of C programming and computer science concepts like memory management, pointers, static/dynamic libraries, and more. Below is a summary of what I learned and key concepts that anyone working on this project should grasp.
+# Libft - My First Project at 42 School (Madrid)
+
+This project is my first assignment at **School 42 Madrid**, where I recreated several essential functions from the standard C library (`libc`) from scratch, along with some additional utility functions. The goal was to deepen my understanding of C programming and foundational computer science concepts like memory management, pointers, static libraries, and algorithmic logic.
+
 ---
 ## How to Compile and Use the Project
 Clone this repository 
