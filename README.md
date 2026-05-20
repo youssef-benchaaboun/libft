@@ -1,132 +1,131 @@
-This project has been created as part of the 42 curriculum by yoben-ch.
+*This project has been created as part of the 42 curriculum by yoben-ch.*
 
-# Libft - My First Project at 42 School (Madrid)
+# Libft
 
-This project is my first assignment at **School 42 Madrid**, where I recreated several essential functions from the standard C library (`libc`) from scratch, along with some additional utility functions. The goal was to deepen my understanding of C programming and foundational computer science concepts like memory management, pointers, static libraries, and algorithmic logic.
+## Description
 
----
-## How to Compile and Use the Project
-Clone this repository 
-## Table of Contents
-1. [Makefile & Compilation Steps](#makefile--compilation-steps)
-2. [Static vs Dynamic Libraries](#static-vs-dynamic-libraries)
-3. [String Literals vs Array of Strings](#string-literals-vs-array-of-strings)
-4. [Keywords: `static`, `extern`, `const`](#keywords-static-extern-const)
-5. [Pointers: Usage and Meaning](#pointers-usage-and-meaning)
-6. [Memory Allocation & Management](#memory-allocation--management)
-7. [Linked Lists & Basic Data Structures](#linked-lists--basic-data-structures)
-8. [File Handling](#file-handling)
+Libft is a custom C static library created for the 42 curriculum. Its goal is to
+reimplement a selection of standard C library functions, add useful string and
+memory utilities, and provide a small linked-list API that can be reused in later
+C projects.
 
----
+The project builds a static archive named `libft.a`. All source files are written
+in C, follow the 42 Norm, and are compiled with `cc` using `-Wall -Wextra -Werror`.
 
-## Makefile & Compilation Steps
+## Library Details
 
-A **Makefile** is a tool used to automate the process of building and compiling programs. In this project, I created a `Makefile` to manage compilation efficiently. It defines rules for compiling individual files and linking them into a final executable or static library.
+This library contains three groups of functions.
 
-### Key Concepts:
-- **`make` command** automates the process of compiling code.
-- **Makefile rules**: Define how to compile files, link them, and clean up build files.
-- **Dependencies**: Manage file relationships and ensure only modified files are recompiled.
+### Libc Reimplementations
 
-#### Resources:
-- [ C Programming: Makefile](https://www.youtube.com/watch?v=GExnnTaBELk)
+These functions reproduce the behavior of their standard C library equivalents,
+using the `ft_` prefix:
 
-## Static vs Dynamic Libraries
+- Character checks and conversion: `ft_isalpha`, `ft_isdigit`, `ft_isalnum`,
+  `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`
+- Memory functions: `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`,
+  `ft_memchr`, `ft_memcmp`, `ft_calloc`
+- String functions: `ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`,
+  `ft_strrchr`, `ft_strncmp`, `ft_strnstr`, `ft_strdup`
+- Conversion: `ft_atoi`
 
-This project required creating both **static** and **dynamic libraries**. The main difference between them lies in how they are linked to the final program.
+The character classification functions return `1` when the character matches
+the tested class and `0` otherwise, as required by the subject.
 
-### Static Library:
-- Compiled into the program at compile-time.
-- Larger executable size.
-- Does not require the library file to be present at runtime.
+### Additional Functions
 
-### Dynamic Library:
-- Linked to the program at runtime.
-- Smaller executable size.
-- Requires the `.so` (shared object) file to be present at runtime.
+These functions provide common operations that are useful in later projects:
 
+- `ft_substr`: creates a substring from a string
+- `ft_strjoin`: joins two strings into a new allocated string
+- `ft_strtrim`: trims characters from the beginning and end of a string
+- `ft_split`: splits a string into a NULL-terminated array of strings
+- `ft_itoa`: converts an integer to a string
+- `ft_strmapi`: creates a new string by applying a function to each character
+- `ft_striteri`: applies a function to each character in place
+- `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`: write output
+  to a file descriptor
 
-## String Literals vs Array of Strings
+### Linked List Functions
 
-Understanding the difference between **string literals** and an **array of strings** is crucial to avoid **segmentation faults**.
+The library defines the following list structure in `libft.h`:
 
-- **String literals** are constant and stored in read-only memory.
-- **Array of strings** is mutable, and each element can be changed or reassigned.
+```c
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+```
 
-### Common Pitfall: 
-- Modifying string literals can result in undefined behavior.
+It also implements these list helpers:
 
-#### Resources:
-- [String Literals in C]([https://www.geeksforgeeks.org/string-literal-in-c/](https://www.youtube.com/watch?v=Qp3WatLL_Hc))
+- `ft_lstnew`
+- `ft_lstadd_front`
+- `ft_lstsize`
+- `ft_lstlast`
+- `ft_lstadd_back`
+- `ft_lstdelone`
+- `ft_lstclear`
+- `ft_lstiter`
+- `ft_lstmap`
 
-## Keywords: `static`, `extern`, `const`
+## Instructions
 
-### `static`:
-- Limits the scope of a variable or function to the file it's declared in.
+Compile the library from the repository root:
 
-### `extern`:
-- Declares a variable or function defined elsewhere, usually in another file.
+```sh
+make
+```
 
-### `const`:
-- Defines a constant value that cannot be modified after initialization.
+This creates:
 
-#### Resources:
-- [C Keywords](https://www.youtube.com/watch?v=3E-r4GfvWOI)
+```text
+libft.a
+```
 
-## Pointers: Usage and Meaning
+Clean object files:
 
-Pointers are variables that store memory addresses. Understanding pointers is essential in C programming for efficient memory use and manipulation.
+```sh
+make clean
+```
 
-### Key Concepts:
-- **Dereferencing**: Accessing the value at the memory address stored in a pointer.
-- **Memory Address**: The location of a variable in memory.
-- **Pointer Arithmetic**: Manipulating memory addresses directly.
+Clean object files and the static library:
 
-#### Resources:
-- [C Pointers Tutorial](https://www.youtube.com/watch?v=zuegQmMdy8M)
+```sh
+make fclean
+```
 
-## Memory Allocation & Management
+Rebuild the project from scratch:
 
-Memory management is crucial to avoid memory leaks and segmentation faults. I worked with **dynamic memory allocation** functions like `malloc()`, `calloc()`, and `free()`.
+```sh
+make re
+```
 
-### Key Concepts:
-- **malloc()**: Allocates a block of memory.
-- **free()**: Deallocates memory.
-- **Segmentation Fault**: Occurs when accessing memory incorrectly (e.g., accessing freed memory).
+To use the library in another C file, include the header and link the archive:
 
-#### Resources:
-- [Dynamic Memory Allocation in C](https://www.youtube.com/watch?v=_8-ht2AKyH4)
+```c
+#include "libft.h"
+```
 
-## Linked Lists & Basic Data Structures
+```sh
+cc -Wall -Wextra -Werror main.c libft.a
+```
 
-During the project, I implemented a basic **linked list**. This data structure allows efficient insertion and deletion of elements without needing contiguous memory locations.
+## Project Rules
 
-### Key Concepts:
-- **Node**: Each element in a linked list, containing data and a pointer to the next node.
-- **Insertion/Deletion**: Inserting or deleting elements in the list involves manipulating pointers.
+- No global variables are used.
+- Helper functions, when needed, are declared `static`.
+- The library is created with `ar`.
+- `libtool` is not used.
+- The Makefile provides the required rules: `all`, `clean`, `fclean`, and `re`.
+- The submitted files are the Makefile, `libft.h`, and `ft_*.c` source files.
 
-#### Resources:
-- [Linked Lists in C](https://www.youtube.com/watch?v=Hj_rA0dhr2I&t=69s)
+## Resources
 
-## File Handling
+- `man` pages for the standard C library functions reimplemented in this project
+- The 42 Libft subject, version 19.2
+- The OpenBSD manual pages for `strlcpy` and `strlcat`
+- The GNU C Library documentation
+- The C reference documentation at cppreference.com
 
-In this project, I also worked with **file handling** in C, which is a fundamental aspect of interacting with external files.
-
-### Key Concepts:
-- **Opening files**: Using functions like `open()`, `fopen()` to access files.
-- **Reading/Writing to files**: Using `read()`, `write()`, or `fputs()` to interact with file content.
-- **Closing files**: Using `close()` or `fclose()` to properly close a file after use.
-- **Error handling**: Checking the return values from file handling functions to ensure no errors occur.
-
-Handling files correctly helps avoid issues like memory leaks or unclosed file descriptors, which could lead to system resource exhaustion.
-
-#### Resources:
-- [File Handling in C](https://www.youtube.com/watch?v=scXWLP8uhDU)
-
----
-
-## Conclusion
-
-The **libft** project at School 42 has been an excellent opportunity to dive deep into low-level programming concepts in C. By recreating common `libc` functions from scratch, I gained valuable insights into memory management, pointers, libraries, file handling, and more. These fundamental skills are essential for any aspiring programmer.
-
-----
